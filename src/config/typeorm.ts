@@ -4,15 +4,14 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 
 dotenvConfig({ path: '.env' });
 
-console.log('process.env.DATABASE_URL_BASE', process.env.DATABASE_URL_BASE);
-
 const config = {
   type: 'postgres',
-  host: 'ec2-44-215-176-210.compute-1.amazonaws.com',
-  port: 5432,
-  username: 'dzuvfrwusiegqm',
-  password: '8e508fc2e58e6389b3981f9585b3886392788c6d8e920d88d7e8759b54cf110f',
-  database: 'd2la80mehhl8mc',
+  // host: process.env.DATABASE_URL_BASE,
+  // port: process.env.DATABASE_PORT,
+  // username: process.env.DATABASE_USERNAME,
+  // password: process.env.DATABASE_PASSWORD,
+  // database: process.env.DATABASE_NAME,
+  url: process.env.DATABASE_URL,
   entities: ['dist/**/*.entity{.ts,.js}'],
   migrations: ['dist/migrations/*.js'],
   autoLoadEntities: true,
